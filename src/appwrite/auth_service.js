@@ -7,10 +7,10 @@ export class AuthService {
 
     // setting up client and account
     // as all appwrite method accessible through account only
-    constructor(this) {
+    constructor() {
         this.client
             .setEndpoint(config_env_variable.appwriteUrl)
-            .setProjectId(config_env_variable.appwriteProjectId);
+            .setProject(config_env_variable.appwriteProjectId);
 
         this.account = new Account(this.client);
     };
@@ -51,7 +51,7 @@ export class AuthService {
             return await this.account.get();
         }
         catch (error) {
-            console.log("Appwrite service :: getCurrentUser :: error ", error)
+            console.log("Appwrite service :: getCurrentUser :: error ", error);
         }
         return null;
     };
@@ -62,7 +62,7 @@ export class AuthService {
             return await this.account.deleteSessions();
         }
         catch (error) {
-            console.log("Appwrite service :: logout :: error ", error)
+            console.log("Appwrite service :: logout :: error ", error);
         }
     }
 

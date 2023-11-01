@@ -9,7 +9,7 @@ export class DBService {
     constructor() {
         this.client
             .setEndpoint(config_env_variable.appwriteUrl)
-            .setProjectId(config_env_variable.appwriteProjectId);
+            .setProject(config_env_variable.appwriteProjectId);
         this.databases = new Databases();
         this.storage = new Storage();
     }
