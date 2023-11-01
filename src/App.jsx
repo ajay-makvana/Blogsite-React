@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <div>
-        <h1>Blog App React + Appwrite</h1>
+        <div className="text-3xl">Blog App React + Appwrite</div>
       </div>
     </>
   );
