@@ -1,15 +1,43 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useEffect, useState } from "react";
 import "./App.css";
+import { useDispatch } from "react-redux";
+import authService from "./appwrite/auth_service";
+import { login, logout } from "./store/authSlice";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 function App() {
-  console.log(import.meta.env.VITE_APPWRITE_URL);
-  return (
+  // current state is loading or not
+  // if loading show loading Icon, else Data
+  const [loading, setLoading] = useState(true);
+
+  // dispatch
+  const dispatch = useDispatch();
+
+  // as app start check for user loggedIn or not
+  useEffect(() => {
+    authService.getCurrentUser()
+      .then((userData) => {
+        if (userData) {
+          dispatch(login({ userData }));
+        } else {
+          dispatch(logout());
+        }
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  return !loading ? (
     <>
-      <div>
-        <div className="text-3xl">Blog App React + Appwrite</div>
-      </div>
+      <Header />
+      <main>
+        {/* <Outlet/> */}
+      </main>
+      <Footer />
+    </>
+  ) : (
+    <>
+      <div className="text-2xl">Loading ...</div>
     </>
   );
 }
