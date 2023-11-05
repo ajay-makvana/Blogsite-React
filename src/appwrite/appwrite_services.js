@@ -10,8 +10,8 @@ export class DBService {
         this.client
             .setEndpoint(config_env_variable.appwriteUrl)
             .setProject(config_env_variable.appwriteProjectId);
-        this.databases = new Databases();
-        this.storage = new Storage();
+        this.databases = new Databases(this.client);
+        this.storage = new Storage(this.client);
     }
 
     // taken slug as unique ID - so all functionality DOCUMENT_ID = slug
@@ -137,7 +137,7 @@ export class DBService {
     }
 
     // Post image preview
-    async getFilePreview(fileId) {
+    getFilePreview(fileId) {
         return this.storage.getFilePreview(
             config_env_variable.appwriteBucketId,
             fileId

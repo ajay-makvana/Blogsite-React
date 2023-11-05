@@ -23,7 +23,7 @@ export class AuthService {
             if (userAccount) {
                 // Account created succesfully
                 // call login as account created
-                this.login(email, password);
+                this.login({ email, password });
             }
             else {
 
