@@ -1,8 +1,48 @@
-# React + Vite
+# Blogsite-React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descriprion
 
-Currently, two official plugins are available:
+- Web portal allowcreated using React.js and appwrite(backend as service), which allows users to add, update and delete blogpost.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+
+- ### React.js
+
+- ### Appwrite (Backend as service)
+
+- ### redux and redux toolkit
+
+- ### tinymce (as text editor)
+
+## Installations
+
+- Clone the repository:
+
+  ```
+  git clone https://github.com/ajay-makvana/Blogsite-React
+  ```
+
+- Navigate to the project directory:
+
+  ```
+  cd Blogsite-React
+  ```
+
+- Install the dependencies:
+  ```
+  npm install
+  ```
+
+## Configuration
+
+- Rename a `.env.sample` file to `.env` in the root directory of the project and Update the necessary configuration variables mentioned there.
+
+## Run
+
+- project is created using Vite so run by
+
+  ```
+  $ npm run dev
+  ```
+
+- Access the application by visiting http://localhost:5173 in your browser.
